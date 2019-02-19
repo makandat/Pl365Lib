@@ -340,7 +340,7 @@ sub listFiles {
       push @files, $_;
     }
   }
-  return \@files;
+  return @files;
 }
 
 # 指定したフォルダのサブディレクトリ一覧を得る。
@@ -359,7 +359,7 @@ sub listDirectories {
       push @dirs, $_;
     }
   }
-  return \@dirs;
+  return @dirs;
 }
 
 

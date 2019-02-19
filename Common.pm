@@ -1,13 +1,13 @@
 package Common;
 #  コンソール共通パッケージ
-#    Version 0.5  2019-02-01
+#    Version 1.00  2019-02-19
 use strict;
 use utf8;
 use warnings;
-# BOOL
+# BOOL値の定義
 use constant False => 0;
 use constant True => 1;
-# LOG
+# LOGファイル出力先
 use constant LOGFILE => 'Pl365.log';
 # 端末エスケープシーケンス指定コード
 use constant ESC_NORMAL => "\x1b[0m";
@@ -101,9 +101,13 @@ sub count_args {
   return $#ARGV+1;
 }
 
-# コマンドライン引数の配列を返す。
+# コマンドライン引数の配列を返す。インデックスが指定されたときは、そのパラメータを返す。 mix args([idx])
 sub args {
-  return @ARGV;
+  if ($#_ < 0) {
+    return @ARGV;
+  }
+  my $i = shift;
+  return $ARGV[$i];
 }
 
 # 実行中止
@@ -120,7 +124,7 @@ sub stop {
     $message = shift;
   }
   print $message, "\n";
-  exit $c
+  exit $c;
 }
 
 # コマンドを実行する。int exec(list)

@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use utf8;
 require "../Common.pm";
-use constant VERSION => "1.0.0";
+
 
 my $html = <<EOS;
 <!DOCTYPE html>
@@ -102,11 +102,11 @@ EOS
 
 my $script4 = <<EOS;
   function btnclick() {
-    var text1 = $('#text1').val();
-    var temp = $('input[name="temp"]:checked').val();
+    var text1 = \$('#text1').val();
+    var temp = \$('input[name="temp"]:checked').val();
     \$.get('/cgi-bin/Perl/fahren.cgi',
      {"text1":text1, "temp":temp},
-     function(data) { $('#message').text(data); });
+     function(data) { \$('#message').text(data); });
   }
 EOS
 

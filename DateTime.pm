@@ -7,8 +7,11 @@ use Time::Piece ':override';
 our @ISA = qw(Time::Piece);
 use Time::Local;
 use Time::Seconds;
+
+# 定数定義
 use constant False => 0;
 use constant True => 1;
+use constant VERSION => '1.0';
 
 our $timezone = "JST";
 

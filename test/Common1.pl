@@ -1,15 +1,15 @@
 #!/usr/bin/perl
 use utf8;
 use strict;
-require "../Common.pm";
+use Common qw(log_output count_args args);
 
-Common::log_output("Common1.pl test program.", "INFO");
+log_output("Common1.pl test program.", "INFO");
 
-if (Common::count_args() == 0) {
+if (count_args() == 0) {
   die "No params."
 }
 else {
-  my @args = Common::args();
+  my @args = args();
   for (my $i = 0; $i < ($#args + 1); $i++) {
     print $args[$i], "\n";
   }

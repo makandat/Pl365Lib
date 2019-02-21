@@ -9,12 +9,16 @@ use File::Basename;
 use Cwd;
 use Cwd 'abs_path';
 use File::Temp qw/ tempfile tempdir /;
+use parent qw(Exporter);
+our @EXPORT_OK = qw(readAllText readAllLines writeAllText writeAllLines readBinary writeBinary _copy _move _unlink createSymbolicLink deleteFile _chmod exists isFile isDirectory isLink getAttr getLength getUpdated getMode getOwner getGroup _chdir _mkdir _rmdir getHome getCurrentDirectory listFiles listDirectories getFileName getDirectoryName getExtension getAbsolutePath getTempFile changeExt);
 
 
 
 # 定数定義
 use constant False => 0;
 use constant True => 1;
+use constant VERSION => '1.0';
+
 
 # 変数が数値か判別する。
 sub is_int {

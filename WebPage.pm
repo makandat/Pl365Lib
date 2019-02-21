@@ -12,7 +12,7 @@ use constant False => 0;
 use constant APPCONF => 'AppConf.ini';
 use constant LOGFILE => '/var/www/data/WebPage.log';
 use constant UPLOAD => '/var/www/data';
-
+use constant VERSION => '1.0';
 
 # コンストラクタ
 sub new {

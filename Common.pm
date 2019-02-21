@@ -1,13 +1,16 @@
 package Common;
 #  コンソール共通パッケージ
-#    Version 1.00  2019-02-19
+#    Version 1.0  2019-02-20
 use strict;
 use utf8;
 use warnings;
-# BOOL値の定義
+use parent qw(Exporter);
+our @EXPORT_OK = qw(log_output stop esc_print args count_args exec shell readline get_env is_windows is_linux is_int is_str isset isnull to_bool to_str to_int);
+use constant VERSION => '1.0';
+# BOOL
 use constant False => 0;
 use constant True => 1;
-# LOGファイル出力先
+# LOG
 use constant LOGFILE => 'Pl365.log';
 # 端末エスケープシーケンス指定コード
 use constant ESC_NORMAL => "\x1b[0m";
@@ -101,7 +104,7 @@ sub count_args {
   return $#ARGV+1;
 }
 
-# コマンドライン引数の配列を返す。インデックスが指定されたときは、そのパラメータを返す。 mix args([idx])
+# コマンドライン引数の配列を返す。 array|string args([int i])
 sub args {
   if ($#_ < 0) {
     return @ARGV;
@@ -124,7 +127,7 @@ sub stop {
     $message = shift;
   }
   print $message, "\n";
-  exit $c;
+  exit $c
 }
 
 # コマンドを実行する。int exec(list)

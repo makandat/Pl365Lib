@@ -1,17 +1,17 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-require "../FileSystem.pm";
+use FileSystem qw(getHome listFiles listDirectories);
 
-my $home = FileSystem::getHome();
+my $home = getHome();
 # ファイル一覧
-my @files = FileSystem::listFiles($home . "/bin", "*.rb");
+my @files = listFiles($home . "/bin", "*.rb");
 foreach (@files) {
   print "$_\n";
 }
 
 # サブディレクトリ一覧
-my @dirs = FileSystem::listDirectories("/etc", "a*");
+my @dirs = listDirectories("/etc", "a*");
 foreach (@dirs) {
   print "$_\n";
 }

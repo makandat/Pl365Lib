@@ -3,9 +3,14 @@ package Text;
 use strict;
 use warnings;
 use utf8;
+
+use parent qw(Exporter);
+our @EXPORT_OK = qw(isdigit isalpha isdelim isprint tolower toupper len append substring left right times);
+
+# 定数定義
 use constant False => 0;
 use constant True => 1;
-
+use constant VERSION => '1.0';
 
 # ASCII 文字が数字かどうか判別する。 bool isdigit(c)
 sub isdigit {

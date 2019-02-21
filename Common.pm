@@ -1,12 +1,12 @@
 package Common;
 #  コンソール共通パッケージ
-#    Version 1.0  2019-02-20
+#    Version 1.01  2019-02-21
 use strict;
 use utf8;
 use warnings;
 use parent qw(Exporter);
-our @EXPORT_OK = qw(log_output stop esc_print args count_args exec shell readline get_env is_windows is_linux is_int is_str isset isnull to_bool to_str to_int);
-use constant VERSION => '1.0';
+our @EXPORT_OK = qw(log_output Assert stop puts esc_print args count_args exec shell readline get_env is_windows is_linux is_int is_str isset isnull to_bool to_str to_int);
+use constant VERSION => '1.01';
 # BOOL
 use constant False => 0;
 use constant True => 1;
@@ -38,7 +38,7 @@ use constant ESC_BG_CYAN => "\x1b[46m";
 use constant ESC_FG_WHITE => "\x1b[37m";
 use constant ESC_BG_WHITE => "\x1b[47m";
 
-#  ログ出力
+#  ログ出力  void log_output(string message, level="INFO")
 sub log_output {
   my $message = shift;
   my $level = "INFO";
@@ -52,6 +52,26 @@ sub log_output {
   close FL;
   return;
 }
+
+#  void Assert(expr, string message)
+sub Assert {
+  my $expr = shift;
+  my $message = shift;
+  if (!eval($expr)) {
+    print "$message\n";
+    exit 1;
+  }
+}
+
+# 改行を付けて文字列を表示する。 void puts([string str])
+sub puts {
+  my $str = "";
+  if ($#_ >= 0) {
+    $str = shift;
+  }
+  print $str . "\n";
+}
+
 
 # Linux の場合、属性をつけて文字列を表示する。void esc_print(color, text)
 sub esc_print {

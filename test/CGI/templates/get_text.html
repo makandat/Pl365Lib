@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>Ajax get_text</title>
+ <link rel="stylesheet" href="/css/default.css" />
+ <style>
+  .content {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  table, td {
+    border-width: 0px;
+  }
+  .message {
+    text-align:center;
+    color:magenta;
+  }
+ </style>
+<script src="/js/jquery.min.js"></script>
+
+ <script>
+  function btnclick() {
+    var text1 = $('#text1').val();
+    var temp = $('input[name="temp"]:checked').val();
+    $.get('/cgi-bin/Perl/fahren.cgi',
+     {"text1":text1, "temp":temp},
+     function(data) { $('#message').text(data); });
+  }
+
+ </script>
+</head>
+
+<body>
+<h1>華氏温度変換</h1>
+<div class="menu" style="text-align:center"><a href="/">HOME</a></div>
+<br />
+<div class="content">
+
+<form method="GET">
+ <table>
+ <tr><td>温度　</td><td><input type="text" id="text1" size="10" value="32.0" /></td></tr>
+ <tr><td></td><td><label><input type="radio" name="temp" value="C" checked />&nbsp;C to F</label><br />
+  <label><input type="radio" name="temp" value="F">&nbsp;F to C</label>
+ </td></tr>
+ <tr><td></td><td></td></tr>
+ <tr><td></td><td><input type="button" id="button1" value=" 送信 " onclick="javascript:btnclick();" /></td></tr>
+ <table>
+</form>
+<br />
+<div class="message" id="message"></div>
+
+
+</div>
+<p>&nbsp;</p>
+<p style="text-align:center;"><a href="#top">TOP</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

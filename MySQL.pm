@@ -8,7 +8,7 @@ use utf8;
 use DBD::mysql;
 
 # 定数定義
-use VERSION => '1.0';
+use constant VERSION => '1.0';
 use constant False => 0;
 use constant True => 1;
 use constant APPCONF => 'AppConf.ini';

@@ -97,7 +97,7 @@ sub readConf {
 }
 
 
-# テンプレートファイルを読み込む。 void loadFile()
+# テンプレートファイルを読み込む。 void loadFile(filePath="")
 sub loadFile {
   my $self = shift;
   my $filePath = shift;
@@ -112,7 +112,7 @@ sub loadFile {
 }
 
 
-# HTTP ヘッダーをすべて送信する。  void send_header()
+# HTTP ヘッダーをすべて送信する。  void send_headers()
 sub send_headers {
   my $self = shift;
   for (my $i = 0; $i < $self->{nheaders}; $i++) {

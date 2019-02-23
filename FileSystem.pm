@@ -20,7 +20,7 @@ use constant True => 1;
 use constant VERSION => '1.0';
 
 
-# 変数が数値か判別する。
+# 変数が数値か判別する。(内部使用)   bool is_int(v)
 sub is_int {
   my $x = shift;
   if (!defined($x)) {
@@ -39,7 +39,7 @@ sub is_int {
     return False;
   }
 }
-# 変数をBOOL値に変換する。
+# 変数をBOOL値に変換する。(内部使用)  bool to_bool(v)
 sub to_bool {
   my $rv;
   my $x = shift;

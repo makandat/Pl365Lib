@@ -5,12 +5,12 @@ use warnings;
 use utf8;
 
 use parent qw(Exporter);
-our @EXPORT_OK = qw(isdigit isalpha isdelim isprint tolower toupper len append substring left right times);
+our @EXPORT_OK = qw(isdigit isalpha isdelim isprint tolower toupper len append substring left right times format money);
 
 # 定数定義
 use constant False => 0;
 use constant True => 1;
-use constant VERSION => '1.0';
+use constant VERSION => '1.01';
 
 # ASCII 文字が数字かどうか判別する。 bool isdigit(c)
 sub isdigit {
@@ -122,6 +122,42 @@ sub times {
     $buff .= $c;
   }
   return $buff;
+}
+
+
+# 書式化文字列を返す(引数は6個まで)。 string format(form, ...)
+sub format {
+  my $form = shift;
+  my $result = "";
+  
+  if ($#_ == 0) {
+    $result = sprintf($form, $_[0]);
+  }
+  elsif ($#_ == 1) {
+    $result = sprintf($form, $_[0], $_[1]);
+  }
+  elsif ($#_ == 2) {
+    $result = sprintf($form, $_[0], $_[1], $_[2]);
+  }
+  elsif ($#_ == 3) {
+    $result = sprintf($form, $_[0], $_[1], $_[2], $_[3]);
+  }
+  elsif ($#_ == 4) {
+    $result = sprintf($form, $_[0], $_[1], $_[2], $_[3], $_[4]);
+  }
+  elsif ($#_ == 5) {
+    $result = sprintf($form, $_[0], $_[1], $_[2], $_[3], $_[4], $_[5]);
+  }
+  else {
+    $result = "error";
+  }
+}
+
+# 金額文字列にカンマを三桁ごとに挿入する。 string money(string num)
+sub money {
+  my $num = shift;
+  1 while $num =~ s/(.*\d)(\d\d\d)/$1,$2/;
+  return $num;
 }
 
 

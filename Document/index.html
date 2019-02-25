@@ -7,8 +7,156 @@
 </head>
 
 <body>
-<h1>Pl365Lib index</h1>
+<h1>Pl365Lib 説明書</h1>
 <div class="menu" style="text-align:center;"><a href="/">HOME</a></div>
+<br />
+<h3 style="margin-left:10%;">概要</h3>
+<p>Pl365Lib は Perl のプログラムを素早く作るためのライブラリである。現在のバージョンでは、コンソールアプリケーションと CGI を作ることができる。</p>
+<br />
+<h3 style="margin-left:10%;">モジュールリスト</h3>
+<ul style="margin-left:10%;">
+<li><a href="Pl365Lib - Common.pdf">Pl365Lib - Common　コンソールアプリケーションを関数を含むモジュール。</a></li>
+<li><a href="Pl365Lib - FileSystem.pdf">Pl365Lib - FileSystem　ファイル操作や入出力を行う関数を含むモジュール</a></li>
+<li><a href="Pl365Lib - Text.pdf">Pl365Lib - Text　テキスト処理のための関数を含むモジュールを含む。</a></li>
+<li><a href="Pl365Lib - DateTime.pdf">Pl365Lib - DateTime　日付時刻処理のためのクラス。</a></li>
+<li><a href="Pl365Lib - MySQL.pdf">Pl365Lib - MySQL　MySQL を簡単に使うためのクラス。</a></li>
+<li><a href="Pl365Lib - WebPage.pdf">Pl365Lib - WebPage　CGI を簡単に作れるクラス。</a></li>
+<li><a href="Pl365Lib - Parameters.pdf">Pl365Lib - Parameters　コマンドラインパラメータを簡単に扱うためのクラス</a></li>
+<li><a href="Pl365Lib - Regexp.pdf">Pl365Lib - Regexp　ほかの言語がサポートするような関数で正規表現を扱うためのクラス</a></li>
+</ul>
+<br />
+
+
+<h3 style="margin-left:10%;">ユーティリティ</h3>
+<p></p>
+<ul style="margin-left:10%;">
+<li><a href="#utperl">utperl (ランチャ)</a></li>
+<li><a href="#shtml.pl">shtml.pl (HTML 作成ツール)</a></li>
+<li><a href="#slink.pl">slink.pl (シンボリックリンク作成ツール)</a></li>
+<li><a href="#sperl.pl">sperl.pl (Perl テンプレート作成ツール)</a></li>
+</ul>
+<br />
+<h4><a id="utperl">utperl (ランチャ)</a></h4>
+<p>
+shtml.pl, slink.pl, sperl.pl を起動するためのランチャ。bash で書かれている。
+</p>
+<br />
+<h4><a id="slink.pl">slink.pl</a></h4>
+<p>
+Pl365Lib のモジュールをコピーしたり、シンボリックリンクを作成するためのツール。
+</p>
+<br />
+<h4><a id="sperl.pl">sperl.pl</a></h4>
+<p>
+Pl365Lib を使った Perl プログラム(スケルトン)を作成するためのツール
+</p>
+<br />
+<br />
+<h4><a id="shtml.pl">sthml.pl (HTML 作成ツール)</a></h4>
+<p>
+WebPage で作る CGI の HTML テンプレートファイル(スケルトン)を作成するためのツール。
+</p>
+<br />
+
+
+
+<h3 style="margin-left:10%;">サンプル</h3>
+<h4 style="text-align:center;">Common.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Common1.pl" target="_blank">Common1.pl (log_output, Assert, puts, count,_args, args)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Common2.pl" target="_blank">Common2.pl (isnull, isset, is_int, is_str, is_windows, is_linux, get_env)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Common3.pl" target="_blank">Common3.pl (exec, shell, readline)</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">FileSystem.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_chdir.pl" target="_blank">FS_chdir.pl (chdir, cwd, mkdir, rmdir)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_copy.pl" target="_blank">FS_copy.pl (copy, move, deleteFile)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_exists.pl" target="_blank">FS_exists.pl (exists, isFile, isDirectory, isLink)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_getAttr.pl" target="_blank">FS_getAttr.pl (getAttr, getLength, getUpdated, getMode, getOwner, getGroup)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_listFiles.pl" target="_blank">FS_listFiles.pl (listFiles, listDirectories)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_Path.pl" target="_blank">FS_Path.pl (getFileName, getDirectoryName, getExtension, getAbsolutePath, getTempFile, changeExt)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_readAllLines.pl" target="_blank">FS_readAllLines.pl (readAllLines)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_readAllText.pl" target="_blank">FS_readAllText.pl (readAllText)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_writeText.pl" target="_blank">FS_writeText.pl (writeText)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_writeLines.pl" target="_blank">FS_writeLines.pl (writeLines)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_readBinary.pl" target="_blank">FS_readBinary.pl (readBinary)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/FS_writeBinary.pl" target="_blank">FS_readBinary.pl (writeBinary)</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">DateTime.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/dateTime1.pl" target="_blank">dateTime1.pl (toString, toDateString, toTimeString)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/dateTime2.pl" target="_blank">dateTime2.pl (hour, min, sec, 計算, timestamp)</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">Text.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Text1.pl" target="_blank">Text1.pl (isdigit, isalpha, isdelim, isprint, toupper, tolower)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Text2.pl" target="_blank">Text2.pl (len, append, substring, left, right, times)</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">MySQL.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/MySQL_1.pl" target="_blank">MySQL_1.pl (query)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/MySQL_2.pl" target="_blank">MySQL_2.pl (query2)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/MySQL_3.pl" target="_blank">MySQL_3.pl (execute)</a></li>
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/AppConf.ini" target="_blank">AppConf.ini</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">Parameters.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Parameters1.pl" target="_blank">Parameters1.pl</a></li>
+</ul>
+<br />
+<h4 style="text-align:center;">Regexp.pm のサンプル</h4>
+<ul style="margin-left:10%;">
+ <li><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/Regexp1.pl" target="_blank">Regexp1.pl</a></li>
+</ul>
+<br />
+
+
+
+<h3 style="margin-left:10%;">CGI (WebPage.pm) のサンプル</h3>
+<h4>Hello, World</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/hello_world.cgi" target="_blank">hello_world.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/hello_world.html" target="_blank">hello_world.html</a></p>
+<br />
+
+<h4>Form(GET)</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/form_get.cgi" target="_blank">form_get.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/form_get.html" target="_blank">form_get.html</a></p>
+<br />
+
+<h4>Form(POST)</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/form_post.cgi" target="_blank">form_post.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/form_post.html" target="_blank">form_post.html</a></p>
+<br />
+
+<h4>COOKIE</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/cookie.cgi" target="_blank">cookie.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/cookie.html" target="_blank">cookie.html</a></p>
+<br />
+
+<h4>File Upload</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/upload.cgi" target="_blank">upload.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/upload.html" target="_blank">upload.html</a></p>
+<br />
+
+<h4>Redirect</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/redirect.cgi" target="_blank">redirect.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/redirect.html" target="_blank">redirect.html</a></p>
+<br />
+
+<h4>Ajax GetText</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_text.cgi" target="_blank">get_text.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_text.html" target="_blank">get_text.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/fahren.cgi" target="_blank">fahren.cgi</a></p>
+<br />
+
+<h4>Ajax GetJSON</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_json.cgi" target="_blank">get_json.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_json.html" target="_blank">get_json.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/regex.cgi" target="_blank">regex.cgi</a></p>
+<br />
+
+<h4>Ajax Image</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_image.cgi" target="_blank">get_image.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_image.html" target="_blank">get_image.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/image.cgi" target="_blank">image.cgi</a></p>
+<br />
+
+<h4>MySQL</h4>
+<p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/m_tables.cgi" target="_blank">m_tables.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/m_tables.html" target="_blank">m_tables.html</a></p>
+<br />
 
 
 

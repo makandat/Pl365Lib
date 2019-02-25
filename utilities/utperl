@@ -1,0 +1,17 @@
+#!/bin/bash
+
+place=/home/pi/workspace/perl/Pl365Lib/utilities
+
+echo === Perl Utilities launcher ===
+echo 1. HTML tool
+echo 2. Symbplic Link Tool
+echo 3. Perl source tool
+
+echo Enter No.
+read key 
+case "$key" in
+ "1") perl $place/shtml.pl ;;
+ "2") perl $place/slink.pl ;;
+ "3") perl $place/sperl.pl ;;
+esac
+

@@ -5,7 +5,7 @@ use utf8;
 require "../Common.pm";
 require "../FileSystem.pm";
 use constant VERSION => "1.0.0";
-use constant ORGPATH => '/home/user/workspace/perl/Pl365Lib';
+use constant ORGPATH => '/home/pi/workspace/perl/Pl365Lib';
 use constant True => 1;
 use constant False => 0;
 
@@ -16,15 +16,30 @@ our @modules = qw/Common.pm FileSystem.pm Text.pm DateTime.pm MySQL.pm Parameter
 Common::esc_print("yellow", "=== Create or unlink symbolic links ===\n");
 my $a = Common::readline("Create or unlink (c/u) ? > ");
 my $create = False;
-if (lc($a) eq 'c') {
+if ($a eq '') {
+  Common::stop(1, "Aborted.");
+}
+elsif (lc($a) eq 'c') {
   $create = True;
+}
+else {
+  $create = False
 }
 
 my  $create_path = Common::readline("Enter the directory (FULL path) > ");
+if ($create_path eq '') {
+  Common::stop(1, "Aborted.");
+}
 my $n = 4;
 if ($create == True) {
   $a = Common::readline("Create basic symbolic links only (y/n) ? > ");
-  if ($a ne 'y') {
+  if ($a eq '') {
+    Common::stop(1, "Aborted.");
+  }
+  elsif ($a eq 'y') {
+    $n = 4;
+  }
+  else {
     $n = $#modules + 1;
   }
 }

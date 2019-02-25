@@ -2,10 +2,9 @@
 use strict;
 use warnings;
 use utf8;
-require "../Common.pm";
-require "../FileSystem.pm";
+use Common;
+use FileSystem;
 use constant MODULE_PATH => '/home/user/workspace/perl/Pl365Lib';
-use constant VERSION => "1.0.0";
 
 
 our $console = <<EOS;
@@ -18,16 +17,17 @@ require "./FileSystem.pm";
 require "./Text.pm";
 REQUIRES
 
-Common::esc_print("bold", "START App ..\n");
+binmode(STDOUT, ":utf8");
+Common::esc_print("bold", "開始 ..\\n");
 if (Common::count_args() == 0) {
   Common::stop(9, "ERROR: No parameter(s).");
 }
 
-my $arg1 = $ARGV[1];
-print "argv1 = $argv1\n";
+my \$arg0 = \$ARGV[0];
+print "arg0 = \$arg0", "\\n";
 
 
-print "正常終了\n";
+print "正常終了.\\n";
 exit 0;
 EOS
 
@@ -43,10 +43,10 @@ require "./Text.pm";
 REQUIRES
 use constant TEMPLATE => "./templates";
 
-our $cgi = WebPage->new(TEMPLATE . "/index.html");
+our \$cgi = WebPage->new(TEMPLATE . "/index.html");
 
 
-$cgi->echo();
+\$cgi->echo();
 EOS
 
 
@@ -62,24 +62,35 @@ require "./Text.pm";
 REQUIRES
 use constant TEMPLATE => "./templates";
 
-our $cgi = WebPage->new;
+our \$cgi = WebPage->new;
 
-my $json = "{\"a\":\"0\", \"b\":\"2\"}";
+my \$json = "{\"a\":\"0\", \"b\":\"2\"}";
 
-$cgi->send_json($json);
+\$cgi->send_json(\$json);
 EOS
 
 
 
 # START here.
-Common::esc_print("yellow", "=== Perl Source Generator ===");
+my $a;
+Common::esc_print("yellow", "=== Perl Source Generator ===\n");
 
-my $save_name = Common::readline("Enter the path to be saved. (FULL path) > ")
+my $save_name = Common::readline("Enter the path to be saved. (FULL path) > ");
 if ($save_name eq '') {
   Common::stop(1, "Aborted.");
 }
 
-my $a = Common::readline("Additional options require ? (y/n) > ");
+if (-e $save_name) {
+  $a = Common::readline("\"$save_name\" exists. Continue ? (y/n) > ");
+  if (lc($a) eq 'y') {
+    print "Continued .. \n";
+  }
+  else {
+    Common::stop(3, "Aborted.\n");
+  }
+}
+
+$a = Common::readline("Additional modules require ? (y/n) > ");
 my $requires = "";
 if (lc($a) eq 'y') {
   $requires = <<EOS;
@@ -112,8 +123,9 @@ else {
 }
 
 
-$a = readline("Create symbolic links of the modules ? (y/n) > ");
+$a = Common::readline("Create symbolic links of the modules ? (y/n) > ");
 if (lc($a) eq 'y') {
+  my $save_dir = FileSystem::getDirectoryName($save_name);
   symlink MODULE_PATH . "/Common.pm", $save_dir . "/Common.pm";
   symlink MODULE_PATH . "/FileSystem.pm", $save_dir . "/FileSystem.pm";
   symlink MODULE_PATH . "/Text.pm", $save_dir . "/Text.pm";
@@ -125,5 +137,7 @@ if (lc($a) eq 'y') {
   }
 }
 
+$a = Common::readline("Do you want to change mode '0755' of $save_name ? (y/n) > ");
+FileSystem::_chmod($save_name, 0755); 
 
-print("Done.\n");
+Common::esc_print("green", "Done.\n");

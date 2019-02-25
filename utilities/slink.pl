@@ -2,8 +2,8 @@
 use strict;
 use warnings;
 use utf8;
-require "../Common.pm";
-require "../FileSystem.pm";
+use Common;
+use FileSystem;
 use constant VERSION => "1.0.0";
 use constant ORGPATH => '/home/pi/workspace/perl/Pl365Lib';
 use constant True => 1;

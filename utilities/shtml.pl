@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use utf8;
-require "../Common.pm";
+use Common;
 
 
 my $html = <<EOS;
@@ -182,7 +182,7 @@ EOS
 
 #  START Here
 Common::esc_print("yellow", "=== HTML Generator ===\n");
-my $savePath = Common::readline("Enter the FULL path to be saved. > ");
+my $savePath = Common::readline("Enter the FULL file path to be saved. > ");
 if ($savePath eq '') {
   print "Aborted.\n";
   exit 1;

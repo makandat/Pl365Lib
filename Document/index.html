@@ -34,6 +34,7 @@
 <li><a href="#shtml.pl">shtml.pl (HTML 作成ツール)</a></li>
 <li><a href="#slink.pl">slink.pl (シンボリックリンク作成ツール)</a></li>
 <li><a href="#sperl.pl">sperl.pl (Perl テンプレート作成ツール)</a></li>
+<li><a href="#sscript.pl">sscript.pl (JavaScript (jQuery) 作成ツール)</a></li>
 </ul>
 <br />
 <h4><a id="utperl">utperl (ランチャ)</a></h4>
@@ -55,6 +56,11 @@ Pl365Lib を使った Perl プログラム(スケルトン)を作成するため
 <h4><a id="shtml.pl">sthml.pl (HTML 作成ツール)</a></h4>
 <p>
 WebPage で作る CGI の HTML テンプレートファイル(スケルトン)を作成するためのツール。
+</p>
+<br />
+<h4><a id="sscript.pl">sscript.pl (JavaScript 作成ツール)</a></h4>
+<p>
+jQuery を利用した JavaScript のスニペットを HTML に挿入するツール。
 </p>
 <br />
 
@@ -118,46 +124,57 @@ WebPage で作る CGI の HTML テンプレートファイル(スケルトン)�
 
 
 <h3 style="margin-left:10%;">CGI (WebPage.pm) のサンプル</h3>
+<div style="margin-left:10%">
 <h4>Hello, World</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/hello_world.cgi" target="_blank">hello_world.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/hello_world.html" target="_blank">hello_world.html</a></p>
+<p><a href="/cgi-bin/Perl/hello_world.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Form(GET)</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/form_get.cgi" target="_blank">form_get.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/form_get.html" target="_blank">form_get.html</a></p>
+<p><a href="/cgi-bin/Perl/form_get.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Form(POST)</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/form_post.cgi" target="_blank">form_post.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/form_post.html" target="_blank">form_post.html</a></p>
+<p><a href="/cgi-bin/Perl/form_post.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>COOKIE</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/cookie.cgi" target="_blank">cookie.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/cookie.html" target="_blank">cookie.html</a></p>
+<p><a href="/cgi-bin/Perl/cookie.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>File Upload</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/upload.cgi" target="_blank">upload.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/upload.html" target="_blank">upload.html</a></p>
+<p><a href="/cgi-bin/Perl/upload.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Redirect</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/redirect.cgi" target="_blank">redirect.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/redirect.html" target="_blank">redirect.html</a></p>
+<p><a href="/cgi-bin/Perl/redirect.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Ajax GetText</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_text.cgi" target="_blank">get_text.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_text.html" target="_blank">get_text.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/fahren.cgi" target="_blank">fahren.cgi</a></p>
+<p><a href="/cgi-bin/Perl/get_text.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Ajax GetJSON</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_json.cgi" target="_blank">get_json.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_json.html" target="_blank">get_json.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/regex.cgi" target="_blank">regex.cgi</a></p>
+<p><a href="/cgi-bin/Perl/get_json.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>Ajax Image</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/get_image.cgi" target="_blank">get_image.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/get_image.html" target="_blank">get_image.html</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/image.cgi" target="_blank">image.cgi</a></p>
+<p><a href="/cgi-bin/Perl/get_image.cgi" target="_blank">実行する</a></p>
 <br />
 
 <h4>MySQL</h4>
 <p><a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/m_tables.cgi" target="_blank">m_tables.cgi</a>, <a href="/cgi-bin/showSource.cgi?path=/home/pi/workspace/perl/Pl365Lib/test/CGI/templates/m_tables.html" target="_blank">m_tables.html</a></p>
+<p><a href="/cgi-bin/Perl/m_tables.cgi" target="_blank">実行する</a></p>
+</div>
 <br />
-
 
 
 

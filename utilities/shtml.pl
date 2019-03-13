@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use utf8;
-use Common;
+use Common qw(stop esc_print);
 
 
 my $html = <<EOS;
@@ -159,7 +159,7 @@ my $htmlopt7 = <<EOS;
 EOS
 
 my $header7 = <<EOS;
-<link rel="stylesheet" href="/js/highlight/stylesheets/default.css">
+<link rel="stylesheet" href="/js/highlight/styles/default.css">
 <script src="/js/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 EOS
@@ -181,11 +181,10 @@ EOS
 
 
 #  START Here
-Common::esc_print("yellow", "=== HTML Generator ===\n");
+esc_print("yellow", "=== HTML Generator ===\n");
 my $savePath = Common::readline("Enter the FULL file path to be saved. > ");
 if ($savePath eq '') {
-  print "Aborted.\n";
-  exit 1;
+  stop(1, "Aborted.");
 }
 print "=== Select the OPTION below. ===\n";
 print "0  Nothing\n";
@@ -199,7 +198,9 @@ print "7  Highlight.js\n";
 print "8  Bootstrap.css\n";
 
 my $option = Common::readline("Enter the No. > ");
-
+if ($option eq '') {
+  stop(1, "Aborted.");
+}
 
 if ($option == 1) {
   $html =~ s/OPTION/$htmlopt1/g;
